@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movie Ticket Booking</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Georgia, serif;
+}
+
+body{
+    background:#d9d9d9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.ticket{
+    width:850px;
+    height:300px;
+    background:#e8d8b5;
+    border:3px solid #c7b08a;
+    display:flex;
+    position:relative;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.ticket::before,
+.ticket::after{
+    content:"";
+    width:40px;
+    height:40px;
+    background:#d9d9d9;
+    border-radius:50%;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.ticket::before{
+    left:-20px;
+}
+
+.ticket::after{
+    right:-20px;
+}
+
+.main{
+    flex:3;
+    padding:30px;
+}
+
+.stub{
+    flex:1;
+    border-left:2px dashed #8d7a5d;
+    padding:25px;
+    text-align:center;
+}
+
+.date-time{
+    text-align:center;
+    font-weight:bold;
+    margin-bottom:20px;
+    color:#3b2c1d;
+}
+
+.title{
+    text-align:center;
+    font-size:60px;
+    letter-spacing:5px;
+    font-weight:bold;
+    color:#3b2c1d;
+    margin-bottom:20px;
+}
+
+.details{
+    display:flex;
+    justify-content:space-around;
+    border-top:1px solid #8d7a5d;
+    padding-top:15px;
+    color:#3b2c1d;
+    font-weight:bold;
+}
+
+.details div{
+    text-align:center;
+}
+
+.stub h3{
+    margin-top:20px;
+    color:#3b2c1d;
+}
+
+.stub p{
+    margin-top:15px;
+    font-weight:bold;
+}
+
+.barcode{
+    margin-top:20px;
+    font-size:28px;
+    letter-spacing:3px;
+}
+
+form{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+input,select{
+    padding:8px;
+    border:1px solid #8d7a5d;
+    background:#f5ecd8;
+}
+
+button{
+    grid-column:span 2;
+    padding:10px;
+    background:#3b2c1d;
+    color:white;
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#24170c;
+}
+</style>
+</head>
+
+<body>
+
+<div class="ticket">
+
+    <div class="main">
+
+        <div class="date-time">
+            JULY 25 ★ 7:30 P.M.
+        </div>
+
+        <div class="title">
+            MOVIE TICKET
+        </div>
+
+        <div class="details">
+            <div>
+                HALL<br>3
+            </div>
+            <div>
+                SEC<br>2
+            </div>
+            <div>
+                ROW<br>10
+            </div>
+            <div>
+                SEAT<br>57
+            </div>
+        </div>
+
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Email">
+
+            <select>
+                <option>Select Movie</option>
+                <option>Interstellar</option>
+                <option>Inception</option>
+                <option>Jawan</option>
+                <option>Animal</option>
+            </select>
+
+            <input type="date">
+
+            <button type="submit">
+                BOOK TICKET
+            </button>
+        </form>
+
+    </div>
+
+    <div class="stub">
+        <h4>CINEPOLIS</h4>
+        <h3>PEDDI</h3>
+        <p>ADMIT ONE</p>
+
+        <div class="barcode">
+            ||||||||||||
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
