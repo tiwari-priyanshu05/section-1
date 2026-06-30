@@ -3,14 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Become An Instructor</title>
+<title>Teach. Inspire. Earn.</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+:root{
+    --primary:#7C9D96;
+    --secondary:#A8C3B0;
+    --accent:#F4D19B;
+    --bg:#FAF9F6;
+    --text:#2F3E46;
+}
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins', sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
@@ -18,166 +29,413 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:#f6f3f7;
     padding:40px;
+    overflow:hidden;
+    background:
+    linear-gradient(
+    135deg,
+    #FAF9F6,
+    #F6F8F3,
+    #FFF9F0
+    );
 }
+
+/* Background Glow */
+
+body::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:#A8C3B0;
+    filter:blur(140px);
+    opacity:.15;
+    top:-150px;
+    left:-150px;
+    border-radius:50%;
+}
+
+body::after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:#F4D19B;
+    filter:blur(140px);
+    opacity:.18;
+    bottom:-150px;
+    right:-150px;
+    border-radius:50%;
+}
+
+/* Main Container */
 
 .container{
     max-width:1200px;
     width:100%;
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
     gap:80px;
+
+    padding:70px;
+
+    background:rgba(255,255,255,.65);
+    backdrop-filter:blur(20px);
+
+    border-radius:35px;
+
+    border:1px solid rgba(255,255,255,.4);
+
+    box-shadow:
+    0 25px 60px rgba(124,157,150,.12);
+
+    position:relative;
 }
+
+/* LEFT */
 
 .content{
     flex:1;
+    z-index:2;
+}
+
+.subtitle{
+    color:var(--primary);
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:15px;
 }
 
 .content h1{
-    font-size:42px;
-    font-weight:700;
-    color:#222;
-    line-height:1.2;
-    margin-bottom:20px;
+    font-size:5rem;
+    line-height:.95;
+    color:var(--text);
+    margin-bottom:25px;
+    letter-spacing:-3px;
 }
 
 .content h1 span{
-    color:#b76eff;
+    display:block;
+
+    background:linear-gradient(
+    135deg,
+    #7C9D96,
+    #A8C3B0,
+    #F4D19B
+    );
+
+    background-size:300%;
+
+    background-clip:text;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:gradientMove 6s linear infinite;
 }
 
 .content p{
-    color:#666;
-    font-size:16px;
-    line-height:1.8;
-    max-width:550px;
+    max-width:520px;
+    color:#5f6c70;
+    line-height:1.9;
     margin-bottom:35px;
 }
 
-.content h2{
-    font-size:34px;
-    color:#222;
-    margin-bottom:25px;
-}
+/* Features */
 
-.perks{
-    display:flex;
-    gap:70px;
+.features{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
     margin-bottom:35px;
 }
 
-.perks ul{
-    list-style:none;
+.feature{
+    background:white;
+    padding:15px 20px;
+    border-radius:15px;
+
+    box-shadow:
+    0 10px 25px rgba(124,157,150,.08);
+
+    transition:.4s;
 }
 
-.perks ul li{
-    margin-bottom:15px;
-    color:#333;
-    position:relative;
-    padding-left:22px;
-    font-size:16px;
+.feature:hover{
+    transform:translateY(-8px);
 }
 
-.perks ul li::before{
-    content:"•";
-    position:absolute;
-    left:0;
-    top:-2px;
-    color:#b76eff;
-    font-size:22px;
+.feature strong{
+    color:var(--primary);
 }
+
+/* Button */
 
 .btn{
     display:inline-block;
+    padding:16px 38px;
+
     text-decoration:none;
     color:white;
-    font-weight:600;
-    padding:14px 35px;
-    border-radius:6px;
-    background:linear-gradient(90deg,#c75dff,#f38ab6);
-    box-shadow:0 5px 15px rgba(199,93,255,.3);
-    transition:.3s;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+    135deg,
+    #7C9D96,
+    #A8C3B0,
+    #F4D19B
+    );
+
+    box-shadow:
+    0 15px 30px rgba(124,157,150,.25);
+
+    transition:.4s;
 }
 
 .btn:hover{
-    transform:translateY(-3px);
+    transform:translateY(-5px);
 }
+
+/* RIGHT */
 
 .image-section{
     flex:1;
     display:flex;
     justify-content:center;
+    align-items:center;
+    position:relative;
 }
 
+/* MORPHING BLOB */
+
+.blob{
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    background:linear-gradient(
+    135deg,
+    #A8C3B0,
+    #F4D19B
+    );
+
+    border-radius:
+    55% 45% 70% 30% /
+    40% 60% 40% 60%;
+
+    animation:
+    morph 8s ease-in-out infinite,
+    float 6s ease-in-out infinite;
+
+    opacity:.9;
+}
+
+/* IMAGE */
+
 .image-box{
-    width:320px;
-    height:410px;
-    padding:12px;
-    border:3px dashed #c77dff;
-    border-radius:0 0 50% 50%;
+    width:340px;
+    height:430px;
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    position:relative;
+    z-index:2;
+
+    box-shadow:
+    0 30px 60px rgba(0,0,0,.15);
 }
 
 .image-box img{
     width:100%;
     height:100%;
     object-fit:cover;
-    border-radius:0 0 50% 50%;
 }
 
-@media(max-width:900px){
+/* Floating Cards */
+
+.floating-card{
+    position:absolute;
+    background:white;
+    padding:12px 18px;
+    border-radius:50px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.08);
+
+    font-size:.9rem;
+    font-weight:600;
+
+    z-index:3;
+
+    animation:floatCard 4s ease-in-out infinite;
+}
+
+.card1{
+    top:40px;
+    left:20px;
+}
+
+.card2{
+    right:10px;
+    top:120px;
+    animation-delay:1s;
+}
+
+.card3{
+    bottom:60px;
+    left:0;
+    animation-delay:2s;
+}
+
+/* Animations */
+
+@keyframes morph{
+
+    0%,100%{
+        border-radius:
+        55% 45% 70% 30% /
+        40% 60% 40% 60%;
+    }
+
+    50%{
+        border-radius:
+        35% 65% 50% 50% /
+        60% 40% 60% 40%;
+    }
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-20px);
+    }
+}
+
+@keyframes floatCard{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+@keyframes gradientMove{
+
+    0%{
+        background-position:0%;
+    }
+
+    100%{
+        background-position:300%;
+    }
+}
+
+/* Responsive */
+
+@media(max-width:1000px){
 
     .container{
         flex-direction:column;
         text-align:center;
+        padding:40px;
+    }
+
+    .content h1{
+        font-size:3.8rem;
     }
 
     .content p{
         margin:auto auto 30px;
     }
 
-    .perks{
-        justify-content:center;
-        flex-wrap:wrap;
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .floating-card{
+        display:none;
+    }
+
+    .blob{
+        width:350px;
+        height:350px;
     }
 }
-</style>
 
+@media(max-width:600px){
+
+    .content h1{
+        font-size:2.8rem;
+    }
+
+    .image-box{
+        width:280px;
+        height:350px;
+    }
+
+    .blob{
+        width:300px;
+        height:300px;
+    }
+}
+
+</style>
 </head>
 <body>
 
 <div class="container">
 
+    <!-- LEFT CONTENT -->
+
     <div class="content">
 
+        <div class="subtitle">Join Our Community</div>
+
         <h1>
-            If You Are A Certified Teacher <br>
-            Then <span>Become An Instructor</span>
+            Teach.
+            <span>Inspire.</span>
+            Earn.
         </h1>
 
         <p>
-            Unlock the opportunity to inspire and educate by joining our
-            team of instructors. If you're a certified teacher, elevate your
-            impact and share your expertise with learners worldwide.
+            Share your expertise with thousands of learners worldwide.
+            Create engaging courses, inspire future professionals, and
+            build a rewarding income stream while teaching on your own terms.
         </p>
 
-        <h2>Enjoy Many Perks</h2>
+        <div class="features">
 
-        <div class="perks">
+            <div class="feature">
+                <strong>🌍 Global Reach</strong><br>
+                Teach students from around the world.
+            </div>
 
-            <ul>
-                <li>Global Impact</li>
-                <li>Flexible Schedule</li>
-                <li>Innovative Teaching Tools</li>
-                <li>Recognition And Reputation</li>
-            </ul>
+            <div class="feature">
+                <strong>⏰ Flexible Schedule</strong><br>
+                Teach whenever it suits you.
+            </div>
 
-            <ul>
-                <li>Creative Freedom</li>
-                <li>Monetize Your Expertise</li>
-                <li>Professional Development</li>
-                <li>Networking Opportunities</li>
-            </ul>
+            <div class="feature">
+                <strong>💰 Earn More</strong><br>
+                Monetize your expertise.
+            </div>
+
+            <div class="feature">
+                <strong>🚀 Growth</strong><br>
+                Build your personal brand.
+            </div>
 
         </div>
 
@@ -185,10 +443,26 @@ body{
 
     </div>
 
+    <!-- RIGHT SECTION -->
+
     <div class="image-section">
 
+        <div class="blob"></div>
+
+        <div class="floating-card card1">
+            ⭐ 4.9 Rating
+        </div>
+
+        <div class="floating-card card2">
+            🎓 50K+ Students
+        </div>
+
+        <div class="floating-card card3">
+            🌎 Global Impact
+        </div>
+
         <div class="image-box">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=700" alt="Instructor">
+            <img src="panda.jpg" alt="Instructor">
         </div>
 
     </div>
